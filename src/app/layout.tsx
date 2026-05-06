@@ -3,6 +3,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { GrainOverlay } from "@/components/GrainOverlay";
+import { CustomCursor } from "@/components/CustomCursor";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -15,8 +17,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Osita David - Official Store",
-  description: "Official merchandise and collections.",
+  title: "Osita David - Official",
+  description: "Official platform for Osita David. Exclusive drops, unreleased tracks, tour access, and premium merchandise.",
 };
 
 export default function RootLayout({
@@ -27,10 +29,12 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-black text-white min-h-screen flex flex-col`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-black text-white min-h-screen flex flex-col cursor-none`}
       >
+        <GrainOverlay />
+        <CustomCursor />
         <Header />
-        <main className="flex-1 w-full max-w-[1500px] mx-auto px-5 sm:px-8 xl:px-12 py-12 md:py-20">
+        <main className="flex-1 w-full">
           {children}
         </main>
         <Footer />
