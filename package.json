@@ -1,35 +1,25 @@
 {
-  "name": "temp-app",
+  "name": "osita-david",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint",
-    "postinstall": "prisma generate"
+    "lint": "eslint"
   },
   "dependencies": {
-    "@clerk/nextjs": "^7.3.0",
-    "@prisma/adapter-pg": "^7.8.0",
-    "@prisma/client": "^7.8.0",
-    "@stripe/stripe-js": "^9.4.0",
     "clsx": "^2.1.1",
     "framer-motion": "^12.38.0",
     "lucide-react": "^1.14.0",
     "next": "16.2.4",
-    "pg": "^8.20.0",
-    "prisma": "^7.8.0",
     "react": "19.2.4",
     "react-dom": "19.2.4",
-    "stripe": "^22.1.0",
-    "svix": "^1.92.2",
     "tailwind-merge": "^3.5.0"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
-    "@types/pg": "^8.20.0",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
