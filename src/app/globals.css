@@ -20,8 +20,32 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* Prevent horizontal scroll on all devices */
+  overflow-x: hidden;
+  /* iOS safe area support */
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
+}
+
+html {
+  overflow-x: hidden;
 }
 
 * {
   border-color: var(--border);
+  /* Improve tap targets */
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Ensure touch targets are at least 44px */
+button, a {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Responsive images */
+img {
+  max-width: 100%;
 }

@@ -29,11 +29,11 @@ export function Header() {
         transition={{ duration: 0.9, ease: [0.21, 0.47, 0.32, 0.98] }}
         className={`w-full sticky top-0 z-50 text-white flex flex-col items-center transition-all duration-500 ${
           scrolled
-            ? "bg-black/90 backdrop-blur-xl border-b border-white/10 py-4"
-            : "bg-transparent border-b border-white/5 py-8"
+            ? "bg-black/90 backdrop-blur-xl border-b border-white/10 py-3 md:py-4"
+            : "bg-transparent border-b border-white/5 py-5 md:py-8"
         }`}
       >
-        <div className="w-full max-w-[1400px] mx-auto px-6 flex justify-between items-center">
+        <div className="w-full max-w-[1400px] mx-auto px-4 md:px-6 flex justify-between items-center">
 
           {/* Left spacer / mobile menu */}
           <div className="w-24 flex items-center">
@@ -66,7 +66,7 @@ export function Header() {
           </motion.div>
 
           {/* Icons – right */}
-          <div className="flex items-center gap-5 w-24 justify-end">
+          <div className="flex items-center gap-3 md:gap-5 w-24 justify-end">
             {[
               { Icon: Search, label: "Search" },
               { Icon: User, label: "Profile", href: "/sign-in" },
@@ -130,15 +130,21 @@ export function Header() {
             animate={{ opacity: 1, clipPath: "circle(150% at 2rem 2rem)" }}
             exit={{ opacity: 0, clipPath: "circle(0% at 2rem 2rem)" }}
             transition={{ duration: 0.5, ease: [0.21, 0.47, 0.32, 0.98] }}
-            className="fixed inset-0 z-[200] bg-black flex flex-col items-center justify-center gap-10"
+            className="fixed inset-0 z-[200] bg-black flex flex-col items-center justify-center gap-8 px-6"
           >
             <button
               onClick={() => setMenuOpen(false)}
-              className="absolute top-8 right-8 text-white"
+              className="absolute top-6 right-6 text-white w-11 h-11 flex items-center justify-center"
               aria-label="Close menu"
             >
               <X size={24} strokeWidth={1.5} />
             </button>
+
+            {/* Logo in mobile menu */}
+            <div className="absolute top-6 left-1/2 -translate-x-1/2">
+              <span className="text-xs tracking-[0.3em] text-zinc-500 uppercase">Menu</span>
+            </div>
+
             {navLinks.map(({ href, label }, i) => (
               <motion.div
                 key={label}
@@ -149,12 +155,36 @@ export function Header() {
                 <Link
                   href={href}
                   onClick={() => setMenuOpen(false)}
-                  className="text-3xl uppercase tracking-[0.3em] text-white hover:text-zinc-400 transition-colors"
+                  className="text-4xl uppercase tracking-[0.3em] text-white hover:text-zinc-400 transition-colors block py-2"
                 >
                   {label}
                 </Link>
               </motion.div>
             ))}
+
+            {/* Social icons in mobile menu */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.5, duration: 0.5 }}
+              className="flex gap-6 mt-4"
+            >
+              {[
+                { href: "https://open.spotify.com/artist/3d5DZ5YLW77RNM62AFObl5", label: "Spotify" },
+                { href: "https://www.instagram.com/ositadavd", label: "Instagram" },
+                { href: "https://www.youtube.com/@ositadavd", label: "YouTube" },
+              ].map(({ href, label }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[9px] tracking-[0.3em] text-zinc-500 uppercase hover:text-white transition-colors"
+                >
+                  {label}
+                </a>
+              ))}
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
